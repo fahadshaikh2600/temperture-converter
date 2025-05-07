@@ -3,10 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- here is css link with html-->
+
     <link rel="stylesheet" href="./css/style.css" />
     <title>TEMPERTURE CONVERTER</title>
   </head>
   <body>
+    <!--temperture converteree start here-->
+    <section id="temp-converter-section">
+      <!--temperture converter container start here-->
+
+      <section id="temp-converter-container">
+        <!--leftsection start here-->
+
+        <section id="left-section">
+          <h2 class="headings">Enter Temperature</h2>
+          <label class="labels" for="degree">Degree</label>
+          <div id="input-grp">
+            <input type="number" id="degree" value="0" />
+            <select class="selects" id="from-unit" onchange="handleChange()">
+              <option value="Celsius">°C</option>
+              <option value="Fahrenheit">°F</option>
+            </select>
+          </div>
+          <label class="labels" for="tounit">Convert In</label>
+          <select id="units" disabled>
+            <option value="Fahrenheit">Fahrenheit (°F)</option>
+            <option value="Celsius">Celsius (°C)</option>
+          </select>
+          <button id="convertBtn" onclick="tempChange()">Convert →</button>
+        </section>
+
+        <!--right section start here-->
+
+        <section id="right-section">
+          <p id="result">32<span class="unit">°F</span></p>
+        </section>
+      </section>
+    </section>
+
+    <!-- here is js link with html-->
+
     <script src="./js/script.js"></script>
   </body>
 </html>

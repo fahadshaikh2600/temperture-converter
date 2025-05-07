@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <input type="number" />
+      <button onclick="age">check</button>
+    </div>
+    <script>
+      function convertTemperature() {
+        const degreeInput = document.getElementById("degree");
+        const fromUnit = document.getElementById("from-unit").value;
+        const toUnit = document.getElementById("units").value;
+        const resultSpan = document.getElementById("result");
+        const unitSpan = document.querySelector(".unit");
+
+        const inputTemp = parseFloat(degreeInput.value);
+        let result;
+
+        if (fromUnit === "Celsius") {
+          result = (inputTemp * 9) / 5 + 32;
+        } else if (fromUnit === "Fahrenheit" && toUnit === "Celsius") {
+          result = ((inputTemp - 32) * 5) / 9;
+        } else {
+          result = inputTemp;
+        }
+
+        resultSpan.textContent = result.toFixed(2);
+        unitSpan.textContent = toUnit === "Fahrenheit" ? "°F" : "°C";
+      }
+
+      document.getElementById("from-unit").addEventListener("change", () => {
+        handleChangeUnit();
+        convertTemperature();
+      });
+
+      document
+        .getElementById("convertBtn")
+        .addEventListener("click", convertTemperature);
+    </script>
+  </body>
+</html>
